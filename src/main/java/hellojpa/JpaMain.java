@@ -43,7 +43,7 @@ public class JpaMain {
 
             // 플러시
             // 영속성 컨텍스트의 변경내용을 데이터 베이스에 반영
-            // 영속성 컨텍스트를 비우지 않음 
+            // 영속성 컨텍스트를 비우지 않음
             // 커밋직전에만 동기화 하면됨
             // 영속성 컨텍스트를 플러시 하는 방법
             // em.fluch(); 직접 호출
@@ -54,17 +54,13 @@ public class JpaMain {
             //System.out.println(" ================= ");
             //tx.commit();
 
-            // 준영속 상태
-
             Member member = new Member();
-            member.setId(142L);
-            member.setName("C");
-
-            member.setRoleType(RoleType.GUEST);
+            member.setUsername("C");
 
             em.persist(member);
 
             tx.commit();
+
         } catch (Exception e) {
             tx.rollback();
         } finally {
